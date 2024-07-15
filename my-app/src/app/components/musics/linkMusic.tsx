@@ -1,8 +1,9 @@
 import Image from 'next/image'
-import { ComponentProps} from "react"
+import Link from 'next/link'
 
-interface ContainerMusicProps extends ComponentProps<'button'>{
+interface ContainerMusicProps{
     imageURL: string
+    hRef: string
     alt: string
     title: string
     description: string
@@ -10,21 +11,22 @@ interface ContainerMusicProps extends ComponentProps<'button'>{
 
 export const ContainerMusic = ({
     imageURL,
+    hRef,
     alt,
     title,
-    description,
-    ...props
+    description
 } : ContainerMusicProps) => {
 
     const defaultProps = {
         imageURL: "/noorvana.jpg",
+        hRef: '#',
         alt: "NORVANA",
         title: "NORVANA",
         description: "Playlist • Norvana"
     }
 
     return (
-        <button {...props} className="w-full p-2 flex rounded-md space-x-3 text-left hover:bg-zinc-800 hover:cursor-pointer">
+        <Link href={hRef} className="w-full p-2 flex rounded-md space-x-3 text-left hover:bg-zinc-800 hover:cursor-pointer">
             <div className='rounded-md overflow-hidden'>
                 <Image
                     src={imageURL}
@@ -37,7 +39,7 @@ export const ContainerMusic = ({
             <span className="text-lg">{title}</span>
             <span className="text-xs font-medium">{description}</span>
             </div>
-        </button>
+        </Link>
     )
 
 }

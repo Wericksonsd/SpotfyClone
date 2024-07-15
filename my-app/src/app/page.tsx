@@ -1,11 +1,12 @@
 'use client'
 
-import { ArrowRight, House, Library, List, Plus, Search } from "lucide-react";
+import { ArrowBigDownDash, ArrowLeft, ArrowRight, Bell, House, Library, List, Plus, Search } from "lucide-react";
 import { BasicContainer } from "./components/containers/basicContainer";
 import { FullButton } from "./components/buttons/fullButton";
 import { IconButton } from "./components/buttons/iconButton";
 import { useState } from "react";
 import { ContainerMusic } from "./components/musics/containerMusic";
+import Image from 'next/image'
 
 export default function Home() {
 
@@ -58,15 +59,52 @@ export default function Home() {
                     <List className="size-5"/>
                   </FullButton>
                 </div>
-                <ContainerMusic imageURL="/noorvana.jpg"/>                
+                <ContainerMusic
+                  imageURL="/noorvana.jpg"
+                  alt="Nevanu"
+                  title="Norvana"
+                  description="Playlist • Norvano"
+                />                
               </div>
           </BasicContainer>
         </aside>
       
         <main className="flex-1 bg-zinc-900 rounded-md bg-gradient-to-b from-rose-900/50 from-0% to-zinc-900 to-40%">
-        <div className="w-full h-24 ">
+          <div className="w-full bg-white rounded-t-md">
+            <div className="h-16 w-full px-4 py-2 flex items-center justify-center gap-2">
+              <IconButton color="full">
+                <ArrowLeft className="size-6"/>
+              </IconButton>
 
-        </div>
+              <IconButton color="full">
+                <ArrowRight className="size-6"/>
+              </IconButton>
+
+              <div className="flex-1">
+                PLAY
+              </div>
+
+              <IconButton size="text" color="full">
+                <ArrowBigDownDash className="size-5"/>
+                <span className="text-md font-semibold">Playlist</span>
+              </IconButton>
+
+              <IconButton color="full" size="iconMd">
+                <Bell className="size-4"/>
+              </IconButton>
+
+              <IconButton color="full" size="iconMd">
+                <Image
+                    src={imageURL}
+                    width={50}
+                    height={50}
+                    alt={alt}
+                />
+              </IconButton>
+
+
+            </div>
+          </div>
         </main>
       </div>
 
