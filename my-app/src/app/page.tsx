@@ -1,8 +1,18 @@
+'use client'
+
 import { ArrowRight, House, Library, List, Plus, Search } from "lucide-react";
 import { BasicContainer } from "./components/containers/basicContainer";
 import { FullButton } from "./components/buttons/fullButton";
+import { IconButton } from "./components/buttons/iconButton";
+import { useState } from "react";
+import { ContainerMusic } from "./components/musics/containerMusic";
 
 export default function Home() {
+
+  const [userLibrary, setUserLibrary] = useState(false)
+
+  const handleUserLibrary = () => setUserLibrary(!userLibrary)
+
   return (
     <div className="w-full h-full bg-zinc-950 flex flex-col p-2">
       <div className="w-full flex-1 flex gap-2">
@@ -19,85 +29,36 @@ export default function Home() {
           </BasicContainer>
           <BasicContainer size="full" spacing="lg">
               <div className="text-zinc-400 w-full py-1 flex items-center justify-center gap-1">
-                <FullButton size="full">
+                <FullButton onClick={handleUserLibrary} size="full">
                   <Library className="size-6 min-h-10"/>
-                  <span className="text-md font-bold flex-1">Sua Biblioteca</span>
+                  {userLibrary ? <span className="text-md font-bold flex-1">Sua Biblioteca</span> : <span className="text-md font-bold flex-1 text-left">Cu</span>}
                 </FullButton>
-                <span className="rounded-full p-1 hover:bg-zinc-800 text-zinc-200"><Plus className="size-6 font-semibold"/></span>
-                <span className="rounded-full p-1 hover:bg-zinc-800 text-zinc-200"><ArrowRight className="size-6 font-semibold"/></span>
+                <IconButton><Plus className="size-6 font-semibold"/></IconButton>
+                <IconButton><ArrowRight className="size-6 font-semibold"/></IconButton>
               </div>
 
-              <div className="max-w-full min-h-10 flex items-center justify-center">
+              <div className="w-full min-h-10 flex items-center justify-center">
                 <div className="flex-1 flex overflow-x-hidden gap-2">
-                  <button className="bg-zinc-800 text-zinc-300 text-sm font-semibold rounded-full px-4 py-1  hover:bg-zinc-700/50 hover:text-zinc-200">
-                    Playlist
-                  </button>
-                  <button className="bg-zinc-800 text-zinc-300 text-sm font-semibold rounded-full px-4 py-1  hover:bg-zinc-700/50 hover:text-zinc-200">
-                    Playlist
-                  </button>
-                  <button className="bg-zinc-800 text-zinc-300 text-sm font-semibold rounded-full px-4 py-1  hover:bg-zinc-700/50 hover:text-zinc-200">
-                    Playlist
-                  </button>
-                  <button className="bg-zinc-800 text-zinc-300 text-sm font-semibold rounded-full px-4 py-1  hover:bg-zinc-700/50 hover:text-zinc-200">
-                    Playlist
-                  </button>
-                  <button className="bg-zinc-800 text-zinc-300 text-sm font-semibold rounded-full px-4 py-1  hover:bg-zinc-700/50 hover:text-zinc-200">
-                    Playlist
-                  </button>
-                  <button className="bg-zinc-800 text-zinc-300 text-sm font-semibold rounded-full px-4 py-1  hover:bg-zinc-700/50 hover:text-zinc-200">
-                    Playlist
-                  </button>
-                  <button className="bg-zinc-800 text-zinc-300 text-sm font-semibold rounded-full px-4 py-1  hover:bg-zinc-700/50 hover:text-zinc-200">
-                    Playlist
-                  </button>
+                  <IconButton size="text" color="full">
+                    <span className="text-sm font-medium">Playlist</span>
+                  </IconButton>
                 </div>
-                <button title="Navegar" className="rounded-full p-1 bg-zinc-800 hover:bg-zinc-700 text-zinc-200">
+                <IconButton color="full">
                   <ArrowRight className="size-6 font-semibold"/>
-                </button>
+                </IconButton>
               </div>
 
               <div className="flex-1 w-full overflow-y-scroll">
                 <div className="w-full flex items-center justify-between mb-3">
-                  <button title="Navegar" className="rounded-full p-2 bg-zinc-800 hover:bg-zinc-700 text-zinc-200">
+                  <IconButton color="full" size="iconMd">
                     <Search className="size-5 font-semibold"/>
-                  </button>
-                  <span className="flex items-center justify-center gap-1 text-sm text-zinc-300">
+                  </IconButton>
+                  <FullButton size="contained">
                     Recentes
                     <List className="size-5"/>
-                  </span>
+                  </FullButton>
                 </div>
-                <div className="w-full h-16 p-2 flex rounded-md space-x-2 hover:bg-zinc-800">
-                  <div className="size-12 bg-green-400 rounded-md">
-                  </div>
-                  <div className="flex flex-col text-zinc-300 font-semibold">
-                    <span className="text-lg">Nirvana</span>
-                    <span className="text-xs font-medium">Playlist - Nirvana</span>
-                  </div>
-                </div>
-                <div className="w-full h-16 p-2 flex rounded-md space-x-2 hover:bg-zinc-800">
-                  <div className="size-12 bg-green-400 rounded-md">
-                  </div>
-                  <div className="flex flex-col text-zinc-300 font-semibold">
-                    <span className="text-lg">Nirvana</span>
-                    <span className="text-xs font-medium">Playlist - Nirvana</span>
-                  </div>
-                </div>
-                <div className="w-full h-16 p-2 flex rounded-md space-x-2 hover:bg-zinc-800">
-                  <div className="size-12 bg-green-400 rounded-md">
-                  </div>
-                  <div className="flex flex-col text-zinc-300 font-semibold">
-                    <span className="text-lg">Nirvana</span>
-                    <span className="text-xs font-medium">Playlist - Nirvana</span>
-                  </div>
-                </div>
-                <div className="w-full h-16 p-2 flex rounded-md space-x-2 hover:bg-zinc-800">
-                  <div className="size-12 bg-green-400 rounded-md">
-                  </div>
-                  <div className="flex flex-col text-zinc-300 font-semibold">
-                    <span className="text-lg">Nirvana</span>
-                    <span className="text-xs font-medium">Playlist - Nirvana</span>
-                  </div>
-                </div>
+                <ContainerMusic imageURL="/noorvana.jpg"/>                
               </div>
           </BasicContainer>
         </aside>
