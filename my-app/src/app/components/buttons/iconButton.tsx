@@ -2,18 +2,20 @@ import { ReactNode } from "react"
 import { tv, VariantProps } from "tailwind-variants"
 
 const iconButtonVariant = tv ({
-    base: "text-zinc-300 rounded-full flex items-center justify-center gap-2 hover:text-zinc-200 hover:cursor-pointer",
+    base: "rounded-full flex items-center justify-center gap-2 hover:text-zinc-200 hover:cursor-pointer",
 
     variants:{
         size:{
             icon: 'p-1',
             iconMd: 'p-2',
+            iconLg: 'p-4',
             text: 'px-4 py-1',
         },
 
         color: {
-            none: 'bg-transparent hover:bg-zinc-800',
-            full: 'bg-zinc-800 hover:bg-zinc-700'
+            none: 'text-zinc-300 bg-transparent hover:bg-zinc-800',
+            full: 'text-zinc-300 bg-zinc-800 hover:bg-zinc-700',
+            verde: 'text-zinc-900 bg-green-600 hover:bg-green-500'
         }
     },
 

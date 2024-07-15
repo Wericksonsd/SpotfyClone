@@ -1,6 +1,6 @@
 'use client'
 
-import { ArrowBigDownDash, ArrowLeft, ArrowRight, Bell, House, Library, List, Plus, Search } from "lucide-react";
+import { ArrowBigDownDash, ArrowLeft, ArrowRight, Bell, House, Library, List, Play, Plus, Search } from "lucide-react";
 import { BasicContainer } from "./components/containers/basicContainer";
 import { FullButton } from "./components/buttons/fullButton";
 import { IconButton } from "./components/buttons/iconButton";
@@ -69,9 +69,9 @@ export default function Home() {
           </BasicContainer>
         </aside>
       
-        <main className="flex-1 bg-zinc-900 rounded-md bg-gradient-to-b from-rose-900/50 from-0% to-zinc-900 to-40%">
-          <div className="w-full bg-white rounded-t-md">
-            <div className="h-16 w-full px-4 py-2 flex items-center justify-center gap-2">
+        <main className="flex-1 bg-zinc-900 rounded-md bg-gradient-to-b from-rose-900 from-0% to-zinc-900 to-40%">
+          <div className="w-full rounded-t-md">
+            <div className="w-full p-4 flex items-center justify-center gap-2">
               <IconButton color="full">
                 <ArrowLeft className="size-6"/>
               </IconButton>
@@ -80,29 +80,49 @@ export default function Home() {
                 <ArrowRight className="size-6"/>
               </IconButton>
 
-              <div className="flex-1">
-                PLAY
+              <div className="flex-1 flex items-center justify-start gap-3">
+                <IconButton color="verde" size="iconLg">                  
+                  <Play className="size-6"/>
+                </IconButton>
+                <span className="text-2xl font-bold text-zinc-200">
+                  This is Norville
+                </span>
               </div>
 
               <IconButton size="text" color="full">
-                <ArrowBigDownDash className="size-5"/>
+                <ArrowBigDownDash className="size-7"/>
                 <span className="text-md font-semibold">Playlist</span>
               </IconButton>
 
               <IconButton color="full" size="iconMd">
-                <Bell className="size-4"/>
+                <Bell className="size-5"/>
               </IconButton>
 
-              <IconButton color="full" size="iconMd">
+              <IconButton color="full" size="icon">
+                <div className="rounded-full overflow-hidden">
+                  <Image
+                      src={'/shadow.jpg'}
+                      width={28}
+                      height={28}
+                      alt={'Shadow'}
+                  />
+                </div>
+              </IconButton>
+
+
+            </div>
+            <div className="w-full px-4 py-6 flex items-center justify-start">
+              <div className="rounded-md overflow-hidden">
                 <Image
-                    src={imageURL}
-                    width={50}
-                    height={50}
-                    alt={alt}
+                  src={'/noorvana.jpg'}
+                  width={250}
+                  height={250}
+                  alt={'Noorviaal'}
                 />
-              </IconButton>
+              </div>
+              <div className="flex-1">
 
-
+              </div>
             </div>
           </div>
         </main>
