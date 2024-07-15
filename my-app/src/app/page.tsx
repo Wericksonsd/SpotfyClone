@@ -120,6 +120,26 @@ export default function Home() {
                   alt={'Noorviaal'}
                 />
               </div>
+
+              <div className="">
+                <span>
+                  Playlist
+                </span>
+
+                <span>
+                  This is Nirvana
+                </span>
+
+                <span>
+                This is Nirvana. Todos os maiores hits em uma só playlist.
+                </span>
+
+                <div>
+                  <span>
+                  539.324 salvamentos 50 músicas, cerca de 3h 15min
+                  </span>
+                </div>
+              </div>
               <div className="flex-1">
 
               </div>
