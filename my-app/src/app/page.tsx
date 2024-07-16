@@ -7,6 +7,7 @@ import { IconButton } from "./components/buttons/iconButton";
 import { useState } from "react";
 import { ContainerMusic } from "./components/musics/containerMusic";
 import Image from 'next/image'
+import Link from "next/link";
 
 export default function Home() {
 
@@ -17,7 +18,7 @@ export default function Home() {
   return (
     <div className="w-full h-full bg-zinc-950 flex flex-col p-2">
       <div className="w-full flex-1 flex gap-2">
-        <aside className="w-[354px] h-full flex flex-col space-y-2">
+        <aside className="w-[400px] h-full flex flex-col space-y-2">
           <BasicContainer>
               <FullButton gap="lg">
                 <House className="size-6 min-h-10"/>
@@ -69,9 +70,8 @@ export default function Home() {
           </BasicContainer>
         </aside>
       
-        <main className="flex-1 bg-zinc-900 rounded-md bg-gradient-to-b from-rose-900 from-0% to-zinc-900 to-40%">
-          <div className="w-full rounded-t-md">
-            <div className="w-full p-4 flex items-center justify-center gap-2">
+        <main className="flex-1 bg-zinc-900 rounded-md relative overflow-hidden">
+            <div className="w-full p-4 flex items-center justify-center gap-2 fixed">
               <IconButton color="full">
                 <ArrowLeft className="size-6"/>
               </IconButton>
@@ -111,7 +111,7 @@ export default function Home() {
 
 
             </div>
-            <div className="w-full px-4 py-6 flex items-center justify-start">
+            <div className="w-full p-4 pt-28 flex items-start justify-start gap-4 bg-gradient-to-b from-rose-700/80 from-0% to-rose-950/80 to-100%">
               <div className="rounded-md overflow-hidden">
                 <Image
                   src={'/noorvana.jpg'}
@@ -121,30 +121,39 @@ export default function Home() {
                 />
               </div>
 
-              <div className="">
+              <div className="h-[250px] flex flex-col justify-end gap-2 text-zinc-300 text-sm ">
                 <span>
                   Playlist
                 </span>
 
-                <span>
+                <span className="text-9xl font-extrabold">
                   This is Nirvana
                 </span>
 
-                <span>
+                <span className="text-zinc-400">
                 This is Nirvana. Todos os maiores hits em uma só playlist.
                 </span>
 
                 <div>
-                  <span>
-                  539.324 salvamentos 50 músicas, cerca de 3h 15min
+                  <span className="flex gap-2">
+                    <div className="flex gap-1">
+                      <Image
+                        src={'/spotify-icon.svg'}
+                        height={20}
+                        width={20}
+                        alt="(m)"
+                      />
+                      <Link href={'#'} className="font-semibold hover:underline">Spotify</Link>
+                    </div>
+                    <span className="font-semibold">539.324 salvamentos 50 músicas,</span> cerca de 3h 15min
                   </span>
                 </div>
               </div>
-              <div className="flex-1">
-
-              </div>
+              
             </div>
-          </div>
+            <div className="flex-1">
+              aaaaaaaaaaaaaaaaaaaaaaaaaaaa
+            </div>
         </main>
       </div>
 
