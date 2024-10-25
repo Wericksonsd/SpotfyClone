@@ -6,14 +6,17 @@ import { FullButton } from "./components/buttons/fullButton";
 import { IconButton } from "./components/buttons/iconButton";
 import { useState } from "react";
 import { ContainerMusic } from "./components/musics/containerMusic";
+import { ActualPlaylist } from "./components/actualPlaylist/actualPlaylist";
 import Image from 'next/image'
 import Link from "next/link";
 
 export default function Home() {
 
   const [userLibrary, setUserLibrary] = useState(false)
+  const [playlistNirvana, setPlaylistNirvana] = useState(false)
 
   const handleUserLibrary = () => setUserLibrary(!userLibrary)
+  //const handleUserPlaylist = (var) => var((x) => !x)
 
   return (
     <div className="w-full h-full bg-zinc-950 flex flex-col p-2">
@@ -65,95 +68,31 @@ export default function Home() {
                   alt="Nevanu"
                   title="Norvana"
                   description="Playlist • Norvano"
-                />                
+                />
+                <ContainerMusic
+                  imageURL="/cabecaradio.jpg"
+                  alt="CabeçaRadio"
+                  title="CabeçaRadio"
+                  description="Playlist • CABEÇA AM/FM"
+                />            
               </div>
           </BasicContainer>
         </aside>
       
         <main className="flex-1 bg-zinc-900 rounded-md relative overflow-hidden">
-            <div className="w-full p-4 flex items-center justify-center gap-2 fixed">
-              <IconButton color="full">
-                <ArrowLeft className="size-6"/>
-              </IconButton>
-
-              <IconButton color="full">
-                <ArrowRight className="size-6"/>
-              </IconButton>
-
-              <div className="flex-1 flex items-center justify-start gap-3">
-                <IconButton color="verde" size="iconLg">                  
-                  <Play className="size-6"/>
-                </IconButton>
-                <span className="text-2xl font-bold text-zinc-200">
-                  This is Norville
-                </span>
-              </div>
-
-              <IconButton size="text" color="full">
-                <ArrowBigDownDash className="size-7"/>
-                <span className="text-md font-semibold">Playlist</span>
-              </IconButton>
-
-              <IconButton color="full" size="iconMd">
-                <Bell className="size-5"/>
-              </IconButton>
-
-              <IconButton color="full" size="icon">
-                <div className="rounded-full overflow-hidden">
-                  <Image
-                      src={'/shadow.jpg'}
-                      width={28}
-                      height={28}
-                      alt={'Shadow'}
-                  />
-                </div>
-              </IconButton>
-
-
-            </div>
-            <div className="w-full p-4 pt-28 flex items-start justify-start gap-4 bg-gradient-to-b from-rose-700/80 from-0% to-rose-950/80 to-100%">
-              <div className="rounded-md overflow-hidden">
-                <Image
-                  src={'/noorvana.jpg'}
-                  width={250}
-                  height={250}
-                  alt={'Noorviaal'}
-                />
-              </div>
-
-              <div className="h-[250px] flex flex-col justify-end gap-2 text-zinc-300 text-sm ">
-                <span>
-                  Playlist
-                </span>
-
-                <span className="text-9xl font-extrabold">
-                  This is Nirvana
-                </span>
-
-                <span className="text-zinc-400">
-                This is Nirvana. Todos os maiores hits em uma só playlist.
-                </span>
-
-                <div>
-                  <span className="flex gap-2">
-                    <div className="flex gap-1">
-                      <Image
-                        src={'/spotify-icon.svg'}
-                        height={20}
-                        width={20}
-                        alt="(m)"
-                      />
-                      <Link href={'#'} className="font-semibold hover:underline">Spotify</Link>
-                    </div>
-                    <span className="font-semibold">539.324 salvamentos 50 músicas,</span> cerca de 3h 15min
-                  </span>
-                </div>
-              </div>
-              
-            </div>
-            <div className="flex-1">
-              aaaaaaaaaaaaaaaaaaaaaaaaaaaa
-            </div>
+          <ActualPlaylist
+            imageURL="/noorvana.jpg"
+            alt="nirvana"
+            title="This is Norvana"
+            subTitle="This is Noranja. As melhores em só uma playlist."
+            descMusica="As melhores do Narvena"
+            duracaoPlaylist="Cerca de 1h30min."
+            linkCriacao="#"
+            criacaoPlaylist="Wersco"            
+          />
+          <div className="flex-1">
+            CUCETÃO
+          </div>
         </main>
       </div>
 
